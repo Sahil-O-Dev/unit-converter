@@ -2,28 +2,39 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Temperature Converter</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-<h1>Temperature Converter</h1>
+<div class="container">
+  <h1>Temperature Converter</h1>
 
-<form action="/temperature" method="post">
-  <input type="number" step="any" name="value" required>
+  <form action="/temperature" method="post">
+    <div class="form-group">
+      <input type="number" step="any" name="value" placeholder="Enter value" required>
+    </div>
 
-  <select name="from">
-    <option value="celsius">Celsius</option>
-    <option value="fahrenheit">Fahrenheit</option>
-    <option value="kelvin">Kelvin</option>
-  </select>
+    <div class="form-group">
+      <select name="from">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+        <option value="kelvin">Kelvin</option>
+      </select>
+    </div>
 
-  <select name="to">
-    <option value="celsius">Celsius</option>
-    <option value="fahrenheit">Fahrenheit</option>
-    <option value="kelvin">Kelvin</option>
-  </select>
+    <div class="form-group">
+      <select name="to">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+        <option value="kelvin">Kelvin</option>
+      </select>
+    </div>
 
-  <button type="submit">Convert</button>
-</form>
-<p th:text="${result}"></p>
-<a href="/">Home</a>
+    <button type="submit">Convert</button>
+  </form>
+
+  <p class="result" th:if="${result != null}" th:text="${result}"></p>
+
+  <a class="nav-link" href="/">Home</a>
+</div>
 </body>
 </html>
